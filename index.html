@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Доп.опрос</title>
+  
+  <script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <h2>Дополнительный опрос</h2>
+
+  <form id="survey-form">
+    <label for="salary">Уточните ваши зарплатные ожидания (до вычета налогов)</label>
+    <select id="salary" name="salary" required>
+      <option value="" selected disabled>Выберите…</option>
+      <option>менее 50 000 руб.</option>
+      <option>от 50 000 до 80 000 руб.</option>
+      <option>от 80 000 до 110 000 руб.</option>
+      <option>от 110 000 до 130 000 руб.</option>
+      <option>более 130 000 руб.</option>
+    </select>
+
+    <label for="citizenship">Гражданство</label>
+    <select id="citizenship" name="citizenship" required>
+      <option value="" selected disabled>Выберите…</option>
+      <option>Россия</option>
+      <option>Беларусь</option>
+      <option>Казахстан</option>
+      <option>Кыргызстан</option>
+      <option>Армения</option>
+      <option>Другое</option>
+    </select>
+
+    <h3 class="section-title">
+      Оцените свой уровень владения навыками
+    </h3>
+    <p class="section-subtitle">
+      Выберите вариант, который наиболее точно описывает ваш уровень
+    </p>
+
+    <label for="excel">Microsoft Excel</label>
+    <select id="excel" name="excel" required>
+      <option value="" selected disabled>Выберите…</option>
+      <option>Базовый (формулы, сводные таблицы)</option>
+      <option>Средний (сложные функции, макросы)</option>
+      <option>Продвинутый (автоматизация, моделирование данных)</option>
+      <option>Не владею</option>
+    </select>
+
+    <label for="sql">SQL</label>
+    <select id="sql" name="sql" required>
+      <option value="" selected disabled>Выберите…</option>
+      <option>Базовый (написание простых запросов, функция Join)</option>
+      <option>Средний (написание сложных запросов, агрегатные функции)</option>
+      <option>Продвинутый (написание составных запросов, конфигурация баз данных)</option>
+      <option>Не владею</option>
+    </select>
+
+    <label for="stats">Теория вероятностей и математическая статистика</label>
+    <select id="stats" name="stats" required>
+      <option value="" selected disabled>Выберите…</option>
+      <option>Базовый (основные понятия, описательная статистика)</option>
+      <option>Средний (проверка гипотез, регрессионный анализ)</option>
+      <option>Продвинутый (сложные модели, машинное обучение)</option>
+      <option>Не владею</option>
+    </select>
+
+    <label for="python">Python</label>
+    <select id="python" name="python" required>
+      <option value="" selected disabled>Выберите…</option>
+      <option>Базовый (синтаксис, основные структуры данных)</option>
+      <option>Средний (работа с библиотеками для анализа данных: Pandas, NumPy)</option>
+      <option>Продвинутый (асинхронное программирование, создание пакетов)</option>
+      <option>Не владею</option>
+    </select>
+
+    <label for="bi">BI системы (Power BI, Tableau и другие)</label>
+    <select id="bi" name="bi" required>
+      <option value="" selected disabled>Выберите…</option>
+      <option>Базовый (построение дашбордов, визуализация)</option>
+      <option>Средний (сложные связи данных, DAX / расчетные поля)</option>
+      <option>Продвинутый (оптимизация производительности, архитектура данных)</option>
+      <option>Не владею</option>
+    </select>
+
+    <label for="figma">Figma</label>
+    <select id="figma" name="figma" required>
+      <option value="" selected disabled>Выберите…</option>
+      <option>Базовый (интерфейс, простые макеты)</option>
+      <option>Средний (создание интерактивных прототипов и адаптивных макетов)</option>
+      <option>Продвинутый (дизайн-системы, переменные, плагины)</option>
+      <option>Не владею</option>
+    </select>
+
+    <label for="genai">Генеративный AI</label>
+    <select id="genai" name="genai" required>
+      <option value="" selected disabled>Выберите…</option>
+      <option>Базовый (понимание основ, работа с ChatGPT / Midjourney)</option>
+      <option>Средний (работа с промптами)</option>
+      <option>Продвинутый (знаю принципы алгоритмы работы AI и ML)</option>
+      <option>Не владею</option>
+    </select>
+
+    <!-- РЕЗЮМЕ: звёздочка + лимит -->
+    <label for="resume" class="required">
+      Прикрепи своё резюме
+      <span class="required-star">*</span>
+      <span class="file-hint">(до 15 МБ)</span>
+    </label>
+    <input
+      id="resume"
+      name="resume"
+      type="file"
+      accept=".pdf,.doc,.docx,.rtf,.txt,.jpg,.jpeg,.png"
+      required
+    />
+
+    <p class="error" id="error" style="display:none;"></p>
+
+    <button type="submit" id="submit-btn">Отправить</button>
+  </form>
+
+  <div class="text-block" id="result"></div>
+
+  <script src="./app.js"></script>
+</body>
+</html>

@@ -1,0 +1,334 @@
+/* =========================
+   Color variables
+========================= */
+:root {
+  --color-main: #E6CDF5;
+  --color-accent: #FFE700;
+  --color-text: #1a1a1a;
+  --color-muted: rgba(26, 26, 26, 0.6);
+  --color-border: rgba(26, 26, 26, 0.2);
+  --color-surface: rgba(255, 255, 255, 0.75);
+}
+
+/* =========================
+   Fonts
+========================= */
+@font-face {
+  font-family: "Ubuntu";
+  font-style: normal;
+  font-weight: 300;
+  src: url("fonts/300-normal.eot");
+  src: local("Ubuntu Light"), local("Ubuntu-Light"),
+       url("fonts/300-normal.woff") format("woff"),
+       url("fonts/300-normal.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Ubuntu";
+  font-style: normal;
+  font-weight: 400;
+  src: url("fonts/400-normal.eot");
+  src: local("Ubuntu"),
+       url("fonts/400-normal.woff") format("woff"),
+       url("fonts/400-normal.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Ubuntu";
+  font-style: normal;
+  font-weight: 500;
+  src: url("fonts/500-normal.eot");
+  src: local("Ubuntu Medium"), local("Ubuntu-Medium"),
+       url("fonts/500-normal.woff") format("woff"),
+       url("fonts/500-normal.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Ubuntu";
+  font-style: normal;
+  font-weight: 700;
+  src: url("fonts/700-normal.eot");
+  src: local("Ubuntu Bold"), local("Ubuntu-Bold"),
+       url("fonts/700-normal.woff") format("woff"),
+       url("fonts/700-normal.ttf") format("truetype");
+}
+
+/* =========================
+   Base
+========================= */
+body {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 400;
+  background-color: var(--color-main);
+  color: var(--color-text);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+h2 {
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: var(--color-text);
+  margin-bottom: 20px;
+}
+
+/* =========================
+   Form
+========================= */
+form {
+  background: var(--color-surface);
+  padding: 25px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: 20px;
+  border: 1px solid var(--color-border);
+  backdrop-filter: blur(6px);
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--color-text);
+}
+
+/* =========================
+   Inputs
+========================= */
+input,
+select {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  margin-bottom: 20px;
+  font-family: "Ubuntu", sans-serif;
+  background-color: #fff;
+  color: var(--color-text);
+  box-sizing: border-box;
+}
+
+select option {
+  background-color: #fff;
+  color: var(--color-text);
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(255, 231, 0, 0.35);
+}
+
+#phone {
+  margin-bottom: -8px;
+}
+
+/* =========================
+   Button
+========================= */
+button {
+  width: 35%;
+  padding: 12px;
+  background-color: var(--color-accent);
+  color: #000;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.15s ease, filter 0.15s ease;
+}
+
+button:hover {
+  filter: brightness(0.95);
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+/* =========================
+   Checkbox list
+========================= */
+.question-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 35px;
+}
+
+.question-list__item {
+  padding-left: 40px;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.question-list__item input[type="checkbox"] {
+  position: absolute;
+  left: 10px;
+  top: 2px;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--color-border);
+  border-radius: 6px;
+  appearance: none;
+  cursor: pointer;
+  background-color: #fff;
+  transition: all 0.2s;
+}
+
+.question-list__item input[type="checkbox"]:checked {
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.question-list__item input[type="checkbox"]:checked::after {
+  content: "✓";
+  color: #000;
+  font-size: 14px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* =========================
+   Hints & errors
+========================= */
+.hint {
+  margin-bottom: 14px;
+  padding: 10px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.6);
+  color: var(--color-muted);
+  font-size: 0.95rem;
+}
+
+.error {
+  color: #d63031;
+  margin: 0;
+}
+
+/* =========================
+   Timer
+========================= */
+#timer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--color-surface);
+  padding: 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-text);
+  text-align: center;
+  border-bottom: 1px solid var(--color-border);
+  z-index: 1000;
+}
+
+#time-display {
+  font-weight: 700;
+}
+
+/* =========================
+   Text blocks
+========================= */
+.text-block {
+  padding: 10px;
+  margin: 0 0 20px 0;
+  background-color: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  color: var(--color-text);
+  font-size: 14px;
+  display: none;
+  width: 100%;
+  max-width: 600px;
+  box-sizing: border-box;
+}
+
+.text-block[style*="display: block"] {
+  display: block !important;
+}
+
+/* =========================
+   Links & policy
+========================= */
+.policy-link {
+  text-decoration: underline;
+  cursor: pointer;
+  color: #5e3ea1;
+}
+
+.policy-link:hover {
+  opacity: 0.8;
+}
+
+.policy-text {
+  margin-bottom: 20px;
+  padding: 10px;
+  background: #fff;
+  border-radius: 6px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+/* =========================
+   Responsive
+========================= */
+@media (max-width: 600px) {
+  form {
+    padding: 15px;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  button {
+    width: 100%;
+  }
+
+  #timer {
+    font-size: 1rem;
+  }
+}
+/* =========================
+   Section titles
+========================= */
+.section-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 30px 0 6px;
+  color: var(--color-text);
+}
+
+.section-subtitle {
+  font-size: 0.95rem;
+  color: var(--color-muted);
+  margin: 0 0 20px;
+}
+
+.required {
+  display: block;
+  font-weight: 500;
+}
+
+.required-star {
+  color: #e53935;
+  margin-left: 4px;
+}
+
+.file-hint {
+  font-size: 12px;
+  color: #888;
+  margin-left: 6px;
+}
