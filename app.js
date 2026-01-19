@@ -191,14 +191,6 @@
       fd.append("salary", document.getElementById("salary").value);
       fd.append("citizenship", document.getElementById("citizenship").value);
 
-      fd.append("excel", document.getElementById("excel").value);
-      fd.append("sql", document.getElementById("sql").value);
-      fd.append("stats", document.getElementById("stats").value);
-      fd.append("python", document.getElementById("python").value);
-      fd.append("bi", document.getElementById("bi").value);
-      fd.append("figma", document.getElementById("figma").value);
-      fd.append("genai", document.getElementById("genai").value);
-
       fd.append("resume", resumeFile, resumeFile.name);
 
       // TG init data (если TG)
